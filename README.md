@@ -1,5 +1,16 @@
 # Sudoku_Solver_GUI
 
+## Compile and run
+- run the following commands inside the src folder
+
+``
+javac Program.java
+``
+
+``
+java Program
+``
+
 ## graphical user interface
 
 ![solver gui](images/solver_gui.png)
