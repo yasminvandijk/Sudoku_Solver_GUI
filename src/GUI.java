@@ -95,6 +95,7 @@ public class GUI {
         boolean inputsValid = true;
 
         Color invalidCellColor = Color.RED;
+        Color solvedCellColor = Color.GREEN;
 
         // get sudoku values from the text fields
         for (int i = 0; i < 9; i++) {
@@ -131,7 +132,18 @@ public class GUI {
 
         if (inputsValid) {
             // try to solve sudoku, display solution if one is found
-            // TODO
+            if (sudoku.Solve()) {
+                // write values to textfields
+                for (int i = 0; i < 9; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        textFields[i][j].setText(String.valueOf(sudoku.GetValue(i, j)));
+                        textFields[i][j].setBackground(solvedCellColor);
+                    }
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(frame, "no solution found");
+            }
         }
     }
 }
