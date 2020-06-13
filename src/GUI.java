@@ -91,6 +91,47 @@ public class GUI {
 
     private void SolveSudoku() {
 
-        // TODO
+        Sudoku sudoku = new Sudoku();
+        boolean inputsValid = true;
+
+        Color invalidCellColor = Color.RED;
+
+        // get sudoku values from the text fields
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+
+                String text = textFields[i][j].getText();
+
+                if (text == null || text.length() == 0) {
+                    // set value to 0 for empty text fields
+                    sudoku.SetValue(i, j, 0);
+                    textFields[i][j].setBackground(Color.WHITE);
+                }
+                else {
+                    // check if input is a valid number
+                    try {
+                        int number = Integer.parseInt(text);
+
+                        if (number >= 0 && number <= 9) {
+                            sudoku.SetValue(i, j, number);
+                            textFields[i][j].setBackground(Color.WHITE);
+                        }
+                        else {
+                            inputsValid = false;
+                            textFields[i][j].setBackground(invalidCellColor);
+                        }
+                    }
+                    catch(Exception e) {
+                        inputsValid = false;
+                        textFields[i][j].setBackground(invalidCellColor);
+                    }
+                }
+            }
+        }
+
+        if (inputsValid) {
+            // try to solve sudoku, display solution if one is found
+            // TODO
+        }
     }
 }
