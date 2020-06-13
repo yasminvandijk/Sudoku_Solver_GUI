@@ -2,9 +2,9 @@
 
 ## graphical user interface
 
-[solver gui](images/solver_gui.png)
-[solver gui - invalid input](images/solver_gui_invalid_input.png)
-[solver gui - solved sudoku](images/solver_gui_solved.png)
+![solver gui](images/solver_gui.png)
+![solver gui - invalid input](images/solver_gui_invalid_input.png)
+![solver gui - solved sudoku](images/solver_gui_solved.png)
 
 ## sudoku solver
 
