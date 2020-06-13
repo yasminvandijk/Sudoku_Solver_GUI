@@ -241,7 +241,40 @@ public class Sudoku {
             return IsSudokuValid();
         }
         else {
-            //TODO: find the empty cell with the least number of possible values
+            // find the empty cell with the least number of possible values
+            emptyCells.forEach(c -> {
+                if (c.GetValue() != 0) {
+                    fixedCells.add(c);
+                }
+            });
+            emptyCells.removeIf(c -> c.GetValue() != 0);
+            emptyCells.sort((a, b) -> a.GetNrPossibleValues() - b.GetNrPossibleValues());
+
+            SudokuCell cell = emptyCells.get(0);
+
+            for (int i = 1; i <= 9; i++) {
+
+                if (cell.IsValuePossible(i)) {
+
+                    Sudoku sudoku = new Sudoku();
+                    for (int x = 0; x < 9; x++) {
+                        for (int y = 0; y < 9; y++) {
+                            sudoku.SetValue(x, y, GetValue(x, y));
+                        }
+                    }
+                    sudoku.SetValue(cell.Row, cell.Column, i);
+
+                    if (sudoku.Solve()) {
+                        for (int x = 0; x < 9; x++) {
+                            for (int y = 0; y < 9; y++) {
+                                SetValue(x, y, sudoku.GetValue(x, y));
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+
             return false;
         }
     }

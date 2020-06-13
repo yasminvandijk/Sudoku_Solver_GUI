@@ -94,8 +94,8 @@ public class GUI {
         Sudoku sudoku = new Sudoku();
         boolean inputsValid = true;
 
-        Color invalidCellColor = Color.RED;
-        Color solvedCellColor = Color.GREEN;
+        Color invalidCellColor = new Color(1.0f, 0.5f, 0.5f);
+        Color solvedCellColor = new Color(0.5f, 1.0f, 0.5f);
 
         // get sudoku values from the text fields
         for (int i = 0; i < 9; i++) {
