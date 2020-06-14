@@ -4,7 +4,7 @@
 - run the following commands inside the src folder
 
 ``
-javac Program.java
+javac *.java
 ``
 
 ``
