@@ -1,5 +1,7 @@
 # Sudoku_Solver_GUI
 
+written in Java, using the Swing library for the user interface
+
 ## Compile and run
 - run the following commands inside the src folder
 
